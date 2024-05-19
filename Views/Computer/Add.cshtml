@@ -1,0 +1,47 @@
+﻿@model ComputerViewModel
+@{
+    ViewData["Title"] = "Add computer";
+}
+
+<div class="p-4 container">
+    <div class="row p-1">
+        <div class="col-md-12">
+            <h3>Add new computer</h3>
+        </div>      
+    </div>
+    <div class="row p-4">
+        <div class="col-md-6">
+           <form asp-controller="Computer" asp-action="Add" method="post">
+               <div class="mb-3">
+                    <label for="MarkaName" class="form-label fw-bold">Marka Name</label>
+                    <input asp-for="MarkaName" type="text" class="form-control" />
+                    <span asp-validation-for="MarkaName"></span>
+               </div>
+
+                <div class="mb-3">
+                    <label for="ModelName" class="form-label fw-bold">Model Name</label>
+                    <input asp-for="ModelName" type="text" class="form-control" />
+                    <span asp-validation-for="ModelName"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inStock" class="form-label fw-bold">Instock</label>
+                    <input asp-for="inStock" type="number" class="form-control" />
+                    <span asp-validation-for="inStock"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Size" class="form-label fw-bold">Size</label>
+                    <input asp-for="Size" type="text" class="form-control" />
+                    <span asp-validation-for="Size"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Please choose detail</label>
+                    <select asp-for="DetailsId" asp-items="ViewBag.Details"></select>
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+           </form>
+        </div>
+    </div>
+</div>
